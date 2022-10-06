@@ -26,7 +26,18 @@ buildscript {
             exclude group: "org.gradle"
         }
         classpath "com.google.guava:guava:31.1-jre"
+        classpath group: "org.sonarsource.scanner.gradle", name: "sonarqube-gradle-plugin", version: "3.4.0.2513"
     }
+}
+
+apply plugin: "org.sonarqube"
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "equipe6_teammates"
+    property "sonar.organization", "equipe6"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 configurations {
